@@ -2,7 +2,6 @@
 
 Bu proje, Spring Boot kullanarak evcil hayvan bilgilerini yönetmek için geliştirilmiş basit bir RESTful API uygulamasıdır. Kullanıcılar (sahipler) ve onların evcil hayvanları arasındaki ilişkiyi yönetir ve temel CRUD (Create, Read, Update, Delete) işlemlerini sağlar.
 
-Bu proje, 6 günlük bir öğrenme planı doğrultusunda geliştirilmiştir.
 
 ## 🚀 Özellikler
 
