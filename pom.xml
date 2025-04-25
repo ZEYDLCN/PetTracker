@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!-- Stabil bir Spring Boot sürümü kullanıyoruz (3.4.5 yerine) -->
+        <version>3.2.7</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.zeydalcan</groupId>
+    <artifactId>pettracker</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>pettracker</name>
+    <description>Demo project for Spring Boot</description>
+    <url/>
+    <licenses>
+        <license/>
+    </licenses>
+    <developers>
+        <developer/>
+    </developers>
+    <scm>
+        <connection/>
+        <developerConnection/>
+        <tag/>
+        <url/>
+    </scm>
+    <properties>
+        <!-- Spring Boot 3.2.x genellikle Java 17 veya 21 ile daha uyumludur,
+             ama 20 de çalışabilir. Sorun devam ederse 17'ye çekmeyi düşünebilirsiniz. -->
+        <java.version>20</java.version>
+        <!-- Lombok versiyonunu parent'tan almak için bir property tanımlamak iyi olabilir -->
+        <!-- Genellikle bu satıra gerek kalmaz, parent halleder ama ekleyelim -->
+        <!-- <lombok.version>1.18.32</lombok.version>  --> <!-- Spring Boot 3.2.x ile uyumlu bir versiyon -->
+    </properties>
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <!-- Lombok'un versiyonu genellikle parent tarafından yönetilir -->
+            <!-- Ama explicit belirtmek bazen sorunları çözer -->
+            <!-- <version>${lombok.version}</version> --> <!-- Eğer property tanımlıysa -->
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <!-- Sürümü parent yönetmiyorsa burada belirtmek gerekir -->
+            <version>2.5.0</version> <!-- Bu sürüm SB 3.2.x ile uyumlu olmalı -->
+        </dependency>
+		<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <!-- Plugin versiyonunu parent'tan alması daha iyi olabilir, silinebilir -->
+                <!-- <version>3.11.0</version> -->
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <!-- === DÜZELTME BURADA === -->
+                            <!-- Parent POM'un yönettiği Lombok versiyonunu kullanmasını söylüyoruz -->
+                            <version>${lombok.version}</version>
+                        </path>
+                        <!-- Eğer MapStruct gibi başka annotation processorlar eklerseniz,
+                             onları da buraya <path> olarak eklemeniz gerekir -->
+                    </annotationProcessorPaths>
+                    <!-- Java versiyonunu properties'den almasını sağlayabiliriz -->
+                    <!-- <release>${java.version}</release> -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- Plugin versiyonunu parent'tan alması daha iyi olabilir, silinebilir -->
+                <!-- <version>${project.parent.version}</version> -->
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
