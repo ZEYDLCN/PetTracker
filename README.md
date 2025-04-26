@@ -4,7 +4,7 @@ This project is a simple RESTful API application developed using Spring Boot to 
 
 ---
 
-Bu proje, Spring Boot kullanarak evcil hayvan bilgilerini yönetmek için geliştirilmiş basit bir RESTful API uygulamasıdır. Kullanıcılar (sahipler) ve onların evcil hayvanları arasındaki ilişkiyi yönetir ve temel CRUD (Create, Read, Update, Delete) işlemlerini sağlar.
+Bu proje, Spring Boot kullanarak evcil hayvan bilgilerini yönetmek için geliştirilmiş  bir RESTful API uygulamasıdır. Kullanıcılar (sahipler) ve onların evcil hayvanları arasındaki ilişkiyi yönetir ve temel CRUD (Create, Read, Update, Delete) işlemlerini sağlar.
 
 ## 🚀 Features / Özellikler
 
